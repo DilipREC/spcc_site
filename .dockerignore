@@ -1,0 +1,7 @@
+﻿.git
+.gitignore
+C:/xampp
+*.log
+*.tmp
+.idea
+.vscode
