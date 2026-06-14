@@ -1,0 +1,18 @@
+# ---- Local XAMPP / Windows files ----
+C:/xampp/
+*.log
+*.tmp
+*.bak
+
+# ---- IDE / editor artefacts ----
+.idea/
+.vscode/
+*.sublime-workspace
+
+# ---- OS generated files ----
+Thumbs.db
+Desktop.ini
+
+# ---- Composer (if you ever use) ----
+vendor/
+composer.lock
