@@ -1,0 +1,23 @@
+/* Dark Mode Design Tokens */
+:root {
+  --color-primary: hsl(45, 90%, 55%);
+  --color-primary-dark: hsl(45, 80%, 40%);
+  --color-bg: #f8f9fa; /* Light background */
+  --color-text: #212529; /* Dark text */
+  --font-base: 'Inter', system-ui, sans-serif;
+
+  --color-text-light: var(--color-text);
+}
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+}
+
+/* Transition Utility */
+.transition {
+  transition: all 0.3s ease;
+}
