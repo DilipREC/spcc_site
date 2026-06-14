@@ -7,12 +7,12 @@ include 'db.php';
 
 $error = "";
 if(isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $username = pg_escape_string($conn, $_POST['username']);
+    $password = pg_escape_string($conn, $_POST['password']);
     // Simple plain‑text check (replace with password_hash in production)
     $sql = "SELECT * FROM admin_users WHERE username='$username' AND password='$password'";
-    $result = mysqli_query($conn, $sql);
-    if(mysqli_num_rows($result) > 0) {
+    $result = pg_query($conn, $sql);
+    if(pg_num_rows($result) > 0) {
         $_SESSION['admin'] = $username;
         session_write_close();
         header("Location: admin-dashboard.php");
