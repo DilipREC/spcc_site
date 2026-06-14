@@ -1,0 +1,395 @@
+/* Design Tokens */
+:root {
+  --color-primary: hsl(45, 90%, 55%);
+  --color-primary-dark: hsl(45, 80%, 40%);
+  --color-bg-light: #f8f9fa;
+  --color-bg-dark: hsl(220, 10%, 12%);
+  --color-text-light: #ffffff;
+  --color-text-dark: #212529;
+  --font-base: 'Inter', system-ui, sans-serif;
+}
+
+
+
+/* Glassmorphism Utility */
+.glass {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+}
+
+/* Transition Utility */
+.transition {
+  transition: all 0.3s ease;
+}
+
+/* Body */
+body{
+  font-family: var(--font-base), sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x: hidden;
+}
+  font-family: var(--font-base), sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+  background: var(--color-bg);
+  color: var(--color-text);
+  overflow-x:hidden;
+}
+
+/* Navbar */
+
+.navbar{
+  padding:15px 0;
+  transition:.3s;
+}
+
+.navbar-brand{
+font-size:1.6rem;
+font-weight:700;
+}
+
+.nav-link{
+font-weight:500;
+margin-left:10px;
+}
+
+.nav-link:hover{
+color:#ffc107 !important;
+}
+
+/* Hero */
+/* Hero – dark background */
+/* Hero */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+    .hero-section { height: 110vh; }
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text);
+  text-align: center;
+  padding-top: 20vh;
+}
+.hero h1{
+  font-size:4rem;
+  /* background removed */
+  background-size: cover;
+}
+/* Hide carousel images – we use background instead */
+.carousel-inner, .carousel-item {
+  display: none !important;
+}
+/* Override default Bootstrap light backgrounds */
+.bg-light {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+}
+/* Card style – glassmorphism on dark */
+.card {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  color: var(--color-text);
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+}
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+.hero-overlay {
+  position: relative;
+  z-index: 1;
+  color: var(--color-text);
+  text-align: center;
+  padding-top: 20vh;
+}
+
+
+.hero h1{
+font-size:4rem;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:1.3rem;
+max-width:700px;
+margin:auto;
+}
+
+/* Buttons */
+
+.btn-warning{
+padding:12px 30px;
+font-weight:600;
+border-radius:50px;
+}
+
+.btn-outline-light{
+border-radius:50px;
+padding:12px 30px;
+}
+
+/* Sections */
+
+section{
+  background: var(--color-bg);
+  color: var(--color-text);
+
+padding:80px 0;
+}
+
+/* Cards */
+
+.card{
+/* background removed */
+  border-radius:20px;
+  overflow:hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,.08);
+  transition:.4s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.15);
+}
+
+/* Stats */
+
+.stats-box{
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding:30px;
+  border-radius:20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,.08);
+  text-align:center;
+  }
+
+.stats-box h2{
+color:#ffc107;
+font-size:42px;
+font-weight:bold;
+}
+
+/* Forms */
+
+.form-control,
+.form-select{
+padding:12px;
+border-radius:10px;
+}
+
+.form-control:focus{
+box-shadow:none;
+border-color:#ffc107;
+}
+
+/* Tables */
+
+.table{
+  background: var(--color-bg);
+  color: var(--color-text);
+  border-radius:15px;
+  overflow:hidden;
+}
+
+/* Alerts */
+
+.alert{
+border-radius:12px;
+}
+
+/* Gallery Images */
+
+.gallery-img{
+width:100%;
+height:250px;
+object-fit:cover;
+border-radius:15px;
+transition:.4s;
+}
+
+.gallery-img:hover{
+transform:scale(1.05);
+}
+
+/* Footer */
+
+.footer{
+  background: var(--color-bg);
+  color: var(--color-text);
+
+
+padding:60px 0;
+margin-top:50px;
+}
+
+.footer h4{
+margin-bottom:20px;
+}
+
+.footer a{
+color:white;
+text-decoration:none;
+}
+
+.footer a:hover{
+color:#ffc107;
+}
+
+/* WhatsApp */
+
+.whatsapp-float{
+position:fixed;
+
+bottom:20px;
+right:20px;
+
+width:60px;
+height:60px;
+
+background:#25D366;
+
+color:white;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+
+text-decoration:none;
+
+z-index:999;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.3);
+}
+
+/* Call Button */
+
+.call-float{
+position:fixed;
+
+bottom:95px;
+right:20px;
+
+width:60px;
+height:60px;
+
+background:#007bff;
+
+color:white;
+
+border-radius:50%;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:28px;
+
+text-decoration:none;
+
+z-index:999;
+
+box-shadow:
+0 5px 15px rgba(0,0,0,.3);
+}
+
+/* Badge */
+
+.badge{
+font-size:14px;
+padding:8px 12px;
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:2.5rem;
+}
+
+.hero p{
+font-size:1rem;
+}
+
+.slider-img{
+height:350px;
+}
+
+.navbar-brand{
+font-size:1.2rem;
+}
+
+}
+/* Carousel caption centered */
+.carousel-item {
+  position: relative;
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-text);
+}
+.carousel-caption h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.carousel-caption p {
+  font-size: 1.2rem;
+}
+.carousel-caption .btn {
+  margin: 0.5rem;
+}
+/* Smaller carousel images */
+.carousel-item img {
+  max-height: 70vh; /* slightly smaller than full viewport */
+  width: auto;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.carousel-item {
+  position: relative;
+}
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: var(--color-text);
+}
+.carousel-caption h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+.carousel-caption p {
+  font-size: 1.2rem;
+}
+.carousel-caption .btn {
+  margin: 0.5rem;
+}
