@@ -37,10 +37,34 @@ $connectionString = sprintf(
 // Open the connection.
 $conn = pg_connect($connectionString);
 
+
 if (!$conn) {
     // pg_last_error() gives the most recent error message.
     die('Connection Failed: ' . pg_last_error());
 }
+
+// Ensure the required tables exist (run once on container start)
+$createTable = <<<SQL
+CREATE TABLE IF NOT EXISTS admin_users (
+    id       SERIAL PRIMARY KEY,
+    username VARCHAR(255) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS bookings (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    phone VARCHAR(50),
+    workspace_type VARCHAR(100),
+    status VARCHAR(50) DEFAULT 'New',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+SQL;
+
+pg_query($conn, $createTable) or die('Table creation failed: ' . pg_last_error($conn));
+
+
 
 /* -------------------------------------------------
  * From this point on you can use $conn with the
