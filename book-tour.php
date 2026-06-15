@@ -7,16 +7,17 @@ include 'db.php';
 
 $message = '';
 if (isset($_POST['submit'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name'] ?? '');
-    $email = mysqli_real_escape_string($conn, $_POST['email'] ?? '');
-    $phone = mysqli_real_escape_string($conn, $_POST['phone'] ?? '');
-    $workspace = mysqli_real_escape_string($conn, $_POST['workspace_type'] ?? '');
-    $date = mysqli_real_escape_string($conn, $_POST['date'] ?? '');
+    $name = pg_escape_string($conn, $_POST['name'] ?? '');
+$email = pg_escape_string($conn, $_POST['email'] ?? '');
+$phone = pg_escape_string($conn, $_POST['phone'] ?? '');
+$workspace = pg_escape_string($conn, $_POST['workspace_type'] ?? '');
+$date = pg_escape_string($conn, $_POST['date'] ?? '');
     $sql = "INSERT INTO bookings (name, email, phone, workspace_type, status, created_at) VALUES ('$name', '$email', '$phone', '$workspace', 'Pending', NOW())";
-    if (mysqli_query($conn, $sql)) {
+    $result = pg_query($conn, $sql);
+    if ($result) {
         $message = '<div class="alert alert-success">Your tour request has been submitted. We will contact you shortly.</div>';
     } else {
-        $message = '<div class="alert alert-danger">Error: ' . mysqli_error($conn) . '</div>';
+        $message = '<div class="alert alert-danger">Error: ' . pg_last_error($conn) . '</div>';
     }
 }
 ?>
