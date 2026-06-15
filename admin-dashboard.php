@@ -13,20 +13,20 @@ if ($page < 1) $page = 1;
 $offset = ($page - 1) * $limit;
 
 // Total counts
-$totalRows = mysqli_fetch_row(mysqli_query($conn, "SELECT COUNT(*) FROM bookings"))[0];
+$totalRows = pg_fetch_result(pg_query($conn, "SELECT COUNT(*) FROM bookings"), 0);
 $totalPages = ceil($totalRows / $limit);
 $totalBookings = $totalRows;
-$newBookings = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM bookings WHERE status='New'"));
+$newBookings = pg_num_rows(pg_query($conn, "SELECT * FROM bookings WHERE status='New'"));
 
 // Search handling
 $search = "";
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
-    $searchEsc = mysqli_real_escape_string($conn, $search);
-    $result = mysqli_query($conn,
+    $searchEsc = pg_escape_string($conn, $search);
+    $result = pg_query($conn,
         "SELECT * FROM bookings WHERE name LIKE '%$searchEsc%' OR email LIKE '%$searchEsc%' OR phone LIKE '%$searchEsc%' ORDER BY id DESC LIMIT $limit OFFSET $offset");
 } else {
-    $result = mysqli_query($conn,
+    $result = pg_query($conn,
         "SELECT * FROM bookings ORDER BY id DESC LIMIT $limit OFFSET $offset");
 }
 ?>
@@ -80,7 +80,7 @@ if (isset($_GET['search'])) {
         </tr>
       </thead>
       <tbody>
-        <?php while($row = mysqli_fetch_assoc($result)) { ?>
+        <?php while($row = pg_fetch_assoc($result)) { ?>
         <tr>
           <td><?php echo $row['id']; ?></td>
           <td><?php echo $row['name']; ?></td>
